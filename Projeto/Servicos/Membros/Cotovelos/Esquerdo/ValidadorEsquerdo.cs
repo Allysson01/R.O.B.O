@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace R.O.B.O.Servicos.Membros.Contrair
+namespace R.O.B.O.Servicos.Membros.Contrair.Esquerdo
 {
     public class ValidadorEsquerdo
     {
