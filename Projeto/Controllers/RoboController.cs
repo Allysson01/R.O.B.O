@@ -105,7 +105,7 @@ namespace R.O.B.O.Controllers
             catch (Exception ex)
             {
                 _ = ex;
-                throw new Exception("Erro ao movimentar cotovelos");
+                throw new Exception("Erro ao movimentar cotovelo");
             }
         }
 
@@ -124,7 +124,7 @@ namespace R.O.B.O.Controllers
             catch (Exception ex)
             {
                 _ = ex;
-                throw new Exception("Erro ao movimentar Cotovelo");
+                throw new Exception("Erro ao movimentar cotovelo");
             }
         }
 
