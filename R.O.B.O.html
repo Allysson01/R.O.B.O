@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R.O.B.O</title>
+  </head>
+  <body onload="Carregar()">
+    <main class="container">
+      <div class="cabecaRobo">
+        <div class="balaoConversa">Olá! Seja Bem-Vindo</div>
+        <div class="visao">
+          <div class="olho"><div></div></div>
+        </div>
+      </div>
+
+      <div class="corpoRobo">
+        <div class="ombro Esquerdo">
+          <div class="bracoEsquerdo">
+            <span class="cotovelo cotoveloEsquerdo"></span>
+            <div class="antebracoEsquerdo">
+              <div class="maoEsquerda">
+                <div style="display: flex">
+                  <span class="dedos"></span><span class="dedos"></span
+                  ><span class="dedos"></span><span class="dedos"></span>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ombro Direito">
+          <div class="bracoDireito">
+            <span class="cotovelo cotoveloDireito"></span>
+            <div class="antebracoDireito">
+              <div class="maoDireita">
+                <div style="display: flex">
+                  <span class="dedos"></span><span class="dedos"></span
+                  ><span class="dedos"></span><span class="dedos"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="regiaoBotaoCabeca">
+        <span class="tituloRegiao">Comandos Cabeça</span>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+          "
+        >
+          <div class="btn paraCima" onclick="visaoCima()"></div>
+        </div>
+
+        <div class="regiaoEsquerdaDireita">
+          <div class="btn paraEsquerda" onclick="visaoEsquerda()"></div>
+          <div class="btn paraDireita" onclick="visaoDireita()"></div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+          "
+        >
+          <div class="btn paraBaixo" onclick="visaoBaixo()"></div>
+        </div>
+      </section>
+
+      <section class="regiaoBotoesCotoveloDireito">
+        <span class="tituloRegiao">Comandos cotovelo direito</span>
+        <label for="repousoDireito">
+          <button
+            class="btn btnCotovelo"
+            id="repousoDireito"
+            onclick="cotoveloDireitoEmRepouso()"
+          >
+            ...
+          </button>
+          Repouso
+        </label>
+        <label for="leveContraDireito">
+          <button
+            class="btn btnCotovelo"
+            id="leveContraDireito"
+            onclick="cotoveloLeveContraidoDireito()"
+          >
+            ...
+          </button>
+          Levemente Contraído
+        </label>
+        <label for="contraDireito">
+          <button
+            class="btn btnCotovelo"
+            id="contraDireito"
+            onclick="cotoveloDireitoContraido()"
+          >
+            ...
+          </button>
+          Contraído
+        </label>
+        <label for="forteContraidoDireito">
+          <button
+            class="btn btnCotovelo"
+            id="forteContraidoDireito"
+            onclick="cotoveloDireitoForteContraido()"
+          >
+            ...
+          </button>
+          Fortemente Contraído
+        </label>
+      </section>
+
+      <section class="regiaoBotoesCotoveloEsquerdo">
+        <span class="tituloRegiao">Comandos cotovelo esquerdo</span>
+        <label for="repousoEsquerdo">
+          <button
+            class="btn btnCotovelo"
+            id="repousoEsquerdo"
+            onclick="cotoveloEsquerdoEmRepouso()"
+          >
+            ...
+          </button>
+          Repouso
+        </label>
+        <label for="leveContraEsquerdo">
+          <button
+            class="btn btnCotovelo"
+            id="leveContraEsquerdo"
+            onclick="cotoveloLeveContraidoEsquerdo()"
+          >
+            ...
+          </button>
+          Levemente Contraído
+        </label>
+        <label for="contraEsquerdo">
+          <button
+            class="btn btnCotovelo"
+            id="contraEsquerdo"
+            onclick="cotoveloEsquerdoContraido()"
+          >
+            ...
+          </button>
+          Contraído
+        </label>
+        <label for="forteContraidoEsquerdo">
+          <button
+            class="btn btnCotovelo"
+            id="forteContraidoEsquerdo"
+            onclick="cotoveloEsquerdoForteContraido()"
+          >
+            ...
+          </button>
+          Fortemente Contraído
+        </label>
+      </section>
+
+      <section class="regiaoBotoesMaoEsquerda">
+        <span class="tituloRegiao">Comandos mão esquerda</span>
+        <label for="RotacionarMaoEsquerda-90">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoEsquerda-90"
+            onclick="RotacionarMaoEsquerdaNegativa90()"
+          >
+            ...
+          </button>
+          -90º
+        </label>
+        <label for="RotacionarMaoEsquerda-45">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoEsquerda-45"
+            onclick="RotacionarMaoEsquerdaNegativa45()"
+          >
+            ...
+          </button>
+          -45°
+        </label>
+        <label for="repousoMaoEsquerda">
+          <button
+            class="btn btnCotovelo"
+            id="repousoMaoEsquerda"
+            onclick="RotacionarMaoEsquerdaRepouso()"
+          >
+            ...
+          </button>
+          Repouso
+        </label>
+        <label for="RotacionarMaoEsquerda45">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoEsquerda45"
+            onclick="RotacionarMaoEsquerda45()"
+          >
+            ...
+          </button>
+          45°
+        </label>
+        <label for="RotacionarMaoEsquerda90">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoEsquerda90"
+            onclick="RotacionarMaoEsquerda90()"
+          >
+            ...
+          </button>
+          90º
+        </label>
+        <label for="RotacionarMaoEsquerda135">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoEsquerda135"
+            onclick="RotacionarMaoEsquerda135()"
+          >
+            ...
+          </button>
+          135º
+        </label>
+        <label for="RotacionarMaoEsquerda180">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoEsquerda180"
+            onclick="RotacionarMaoEsquerda180()"
+          >
+            ...
+          </button>
+          180º
+        </label>
+      </section>
+
+      <section class="regiaoBotoesMaoDireita">
+        <span class="tituloRegiao">Comandos mão direita</span>
+        <label for="RotacionarMaoDireita-90">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoDireita-90"
+            onclick="RotacionarMaoDireitaNegativo90()"
+          >
+            ...
+          </button>
+          -90º
+        </label>
+        <label for="RotacionarMaoDireita-45">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoDireita-45"
+            onclick="RotacionarMaoDireitaNegativo45()"
+          >
+            ...
+          </button>
+          -45°
+        </label>
+        <label for="repousoMaoDireita">
+          <button
+            class="btn btnCotovelo"
+            id="repousoMaoDireita"
+            onclick="RotacionarMaoDireitaRepouso()"
+          >
+            ...
+          </button>
+          Repouso
+        </label>
+        <label for="RotacionarMaoDireita45">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoDireita45"
+            onclick="RotacionarMaoDireita45()"
+          >
+            ...
+          </button>
+          45°
+        </label>
+        <label for="RotacionarMaoDireita90">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoDireita90"
+            onclick="RotacionarMaoDireita90()"
+          >
+            ...
+          </button>
+          90º
+        </label>
+        <label for="RotacionarMaoDireita135">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoDireita135"
+            onclick="RotacionarMaoDireita135()"
+          >
+            ...
+          </button>
+          135º
+        </label>
+        <label for="RotacionarMaoDireita180">
+          <button
+            class="btn btnCotovelo"
+            id="RotacionarMaoDireita180"
+            onclick="RotacionarMaoDireita180()"
+          >
+            ...
+          </button>
+          180º
+        </label>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>
+  const root = document.documentElement;
+
+  //#region links
+  const url = `http://localhost:57234/api/Robo`;
+  const inicializarRobo = `${url}/Inicializa`;
+  const inclinarCabeca = `${url}/InclinarCabeca`;
+  const rotacionarCabeca = `${url}/RotacionarCabeca`;
+  const ContrairCotoveloDireito = `${url}/ContrairCotoveloDireito`;
+  const ContrairCotoveloEsquerdo = `${url}/ContrairCotoveloEsquerdo`;
+  const rotacionarMaoDireita = `${url}/RotacionarMaoDireita`;
+  const rotacionarMaoEsquerda = `${url}/RotacionarMaoEsquerda`;
+  //#endregion
+
+  const Carregar = async () => {
+    const resultado = await fetch(inicializarRobo).then((resp) => resp.json());
+
+    if (resultado) {
+      localStorage.setItem("InclinacaoCabeca", InclinarCabeca.EmRepouso);
+      localStorage.setItem("RotacaoCabeca", Rotacao.EmRepouso);
+      localStorage.setItem(
+        "ContrairCotoveloDireito",
+        ContrairCotovelo.EmRepouso
+      );
+      localStorage.setItem(
+        "ContrairCotoveloEsquerdo",
+        ContrairCotovelo.EmRepouso
+      );
+
+      localStorage.setItem("RotacaoMaoDireita", Rotacao.EmRepouso);
+      localStorage.setItem("RotacaoMaoEsquerda", Rotacao.EmRepouso);
+
+      const balaoBemVindo = document.querySelector(".balaoConversa");
+
+      setTimeout(() => (balaoBemVindo.style.opacity = 0), 4000);
+      return;
+    }
+  };
+
+  //#region cabeca
+  const visaoEsquerda = async () => {
+    const inclinacao = localStorage.getItem("InclinacaoCabeca");
+
+    if (inclinacao != InclinarCabeca.ParaBaixo) {
+      const dados = {
+        MovimentoRotacao: Rotacao.RotacaoNegativa45,
+        EstadoAtualRotacao: Number(localStorage.getItem("RotacaoCabeca")),
+        EstadoAtualInclinacao: Number(inclinacao),
+      };
+
+      const resultado = await Post(dados, rotacionarCabeca);
+
+      const { comando, estadoAtual } = resultado;
+      const mover = comando && comando.split("/");
+
+      comando && root.style.setProperty("--rightOlho", mover[0]);
+      comando && root.style.setProperty("--rightIris", mover[1]);
+      comando && localStorage.setItem("RotacaoCabeca", estadoAtual);
+      return;
+    }
+  };
+
+  const visaoDireita = async () => {
+    const inclinacao = localStorage.getItem("InclinacaoCabeca");
+
+    if (inclinacao != InclinarCabeca.ParaBaixo) {
+      const dados = {
+        MovimentoRotacao: Rotacao.Rotacao45,
+        EstadoAtualRotacao: Number(localStorage.getItem("RotacaoCabeca")),
+        EstadoAtualInclinacao: Number(inclinacao),
+      };
+
+      const resultado = await Post(dados, rotacionarCabeca);
+
+      const { comando, estadoAtual } = resultado;
+      const mover = comando && comando.split("/");
+
+      comando && root.style.setProperty("--rightOlho", mover[0]);
+      comando && root.style.setProperty("--rightIris", mover[1]);
+      comando && localStorage.setItem("RotacaoCabeca", estadoAtual);
+      return;
+    }
+  };
+
+  const visaoCima = async () => {
+    const dados = {
+      MovimentoInclinacao: InclinarCabeca.ParaCima,
+      EstadoAtualInclinacao: Number(localStorage.getItem("InclinacaoCabeca")),
+    };
+
+    const resultado = await Post(dados, inclinarCabeca);
+
+    const { comando, estadoAtual } = resultado;
+    const mover = comando && comando.split("/");
+
+    comando && root.style.setProperty("--topOlho", mover[0]);
+    comando && root.style.setProperty("--topIris", mover[1]);
+    comando && localStorage.setItem("InclinacaoCabeca", estadoAtual);
+    return;
+  };
+
+  const visaoBaixo = async () => {
+    const dados = {
+      MovimentoInclinacao: InclinarCabeca.ParaBaixo,
+      EstadoAtualInclinacao: Number(localStorage.getItem("InclinacaoCabeca")),
+    };
+
+    const resultado = await Post(dados, inclinarCabeca);
+
+    const { comando, estadoAtual } = resultado;
+    const mover = comando && comando.split("/");
+
+    comando && root.style.setProperty("--topOlho", mover[0]);
+    comando && root.style.setProperty("--topIris", mover[1]);
+    comando && localStorage.setItem("InclinacaoCabeca", estadoAtual);
+    return;
+  };
+  //#endregion
+
+  //#region cotovelo direito
+  const cotoveloDireitoEmRepouso = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.EmRepouso,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloDireito);
+
+    const { estadoAtual, comando } = resultado;
+    comando && setPropriedadesCotoveloDireito(comando.split("/"), estadoAtual);
+  };
+
+  const cotoveloLeveContraidoDireito = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.LeveContraido,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloDireito);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesCotoveloDireito(comando.split("/"), estadoAtual);
+  };
+
+  const cotoveloDireitoContraido = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.Contraido,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloDireito);
+
+    const { estadoAtual, comando } = resultado;
+    comando && setPropriedadesCotoveloDireito(comando.split("/"), estadoAtual);
+  };
+
+  const cotoveloDireitoForteContraido = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.ForteContraido,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloDireito);
+
+    const { estadoAtual, comando } = resultado;
+    comando && setPropriedadesCotoveloDireito(comando.split("/"), estadoAtual);
+  };
+
+  const setPropriedadesCotoveloDireito = (dados, estadoAtual) => {
+    root.style.setProperty("--topCotoveloDireito", dados[0]);
+    root.style.setProperty("--rotacaoCotoveloDireito", dados[1]);
+    root.style.setProperty("--rightCotoveloDireito", dados[2]);
+
+    localStorage.setItem("ContrairCotoveloDireito", estadoAtual);
+  };
+  //#endregion
+
+  //#region cotovelo esquerdo
+  const cotoveloEsquerdoEmRepouso = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.EmRepouso,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloEsquerdo);
+
+    const { estadoAtual, comando } = resultado;
+    comando && setPropriedadesCotoveloEsquerdo(comando.split("/"), estadoAtual);
+  };
+
+  const cotoveloLeveContraidoEsquerdo = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.LeveContraido,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloEsquerdo);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesCotoveloEsquerdo(comando.split("/"), estadoAtual);
+  };
+
+  const cotoveloEsquerdoContraido = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.Contraido,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloEsquerdo);
+
+    const { estadoAtual, comando } = resultado;
+    comando && setPropriedadesCotoveloEsquerdo(comando.split("/"), estadoAtual);
+  };
+
+  const cotoveloEsquerdoForteContraido = async () => {
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    const dados = {
+      Contrair: ContrairCotovelo.ForteContraido,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, ContrairCotoveloEsquerdo);
+
+    const { estadoAtual, comando } = resultado;
+    comando && setPropriedadesCotoveloEsquerdo(comando.split("/"), estadoAtual);
+  };
+
+  const setPropriedadesCotoveloEsquerdo = (dados, estadoAtual) => {
+    root.style.setProperty("--topCotoveloEsquerdo", dados[0]);
+    root.style.setProperty("--rotacaoCotoveloEsquerdo", dados[1]);
+    root.style.setProperty("--rightCotoveloEsquerdo", dados[2]);
+
+    localStorage.setItem("ContrairCotoveloEsquerdo", estadoAtual);
+  };
+  //#endregion
+
+  //#region mao direita
+  const RotacionarMaoDireitaNegativo90 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.RotacaoNegativa90,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const RotacionarMaoDireitaNegativo45 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.RotacaoNegativa45,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const RotacionarMaoDireitaRepouso = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.EmRepouso,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const RotacionarMaoDireita45 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao45,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const RotacionarMaoDireita90 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao90,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const RotacionarMaoDireita135 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao135,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const RotacionarMaoDireita180 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoDireita")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloDireito")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao180,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoDireita);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoDireito(comando, estadoAtual);
+  };
+
+  const setPropriedadesMaoDireito = (dados, estado) => {
+    root.style.setProperty("--maoDireita", dados);
+    localStorage.setItem("RotacaoMaoDireita", estado);
+  };
+  //#endregion
+
+  //#region mao esquerda
+
+  const RotacionarMaoEsquerdaNegativa90 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.RotacaoNegativa90,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const RotacionarMaoEsquerdaNegativa45 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.RotacaoNegativa45,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const RotacionarMaoEsquerdaRepouso = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.EmRepouso,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const RotacionarMaoEsquerda45 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao45,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const RotacionarMaoEsquerda90 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao90,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const RotacionarMaoEsquerda135 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao135,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const RotacionarMaoEsquerda180 = async () => {
+    const estadoAtualRotacao = Number(
+      localStorage.getItem("RotacaoMaoEsquerda")
+    );
+
+    const estadoAtualContrair = Number(
+      localStorage.getItem("ContrairCotoveloEsquerdo")
+    );
+
+    if (estadoAtualContrair != ContrairCotovelo.ForteContraido) return;
+
+    const dados = {
+      Rotacao: Rotacao.Rotacao180,
+      EstadoAtualRotacaoMao: estadoAtualRotacao,
+      EstadoAtualCotovelo: estadoAtualContrair,
+    };
+
+    const resultado = await Post(dados, rotacionarMaoEsquerda);
+
+    const { estadoAtual, comando } = resultado;
+
+    comando && setPropriedadesMaoEsquerda(comando, estadoAtual);
+  };
+
+  const setPropriedadesMaoEsquerda = (dados, estado) => {
+    root.style.setProperty("--maoEsquerda", dados);
+    localStorage.setItem("RotacaoMaoEsquerda", estado);
+  };
+  //#endregion
+
+  const Post = async (dados, url) => {
+    return await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dados),
+    }).then((resp) => resp.json());
+  };
+
+  //#region enum
+  const InclinarCabeca = Object.freeze({
+    ParaCima: 0,
+    EmRepouso: 1,
+    ParaBaixo: 2,
+  });
+
+  const ContrairCotovelo = Object.freeze({
+    EmRepouso: 0,
+    LeveContraido: 1,
+    Contraido: 2,
+    ForteContraido: 3,
+  });
+
+  const Rotacao = Object.freeze({
+    RotacaoNegativa180: -4,
+    RotacaoNegativa135: -3,
+    RotacaoNegativa90: -2,
+    RotacaoNegativa45: -1,
+    EmRepouso: 0,
+    Rotacao45: 1,
+    Rotacao90: 2,
+    Rotacao135: 3,
+    Rotacao180: 4,
+  });
+  //#endregion
+</script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+  :root {
+    --direita: 0;
+    --esquerda: 0;
+    --topIris: 40%;
+    --topOlho: 15%;
+    --rightIris: 35%;
+    --rightOlho: 35%;
+
+    --rotacaoCotoveloDireito: 0;
+    --topCotoveloDireito: 0;
+    --rightCotoveloDireito: -140px;
+
+    --rotacaoCotoveloEsquerdo: 0;
+    --topCotoveloEsquerdo: 0;
+    --rightCotoveloEsquerdo: 180px;
+
+    --maoDireita: 55deg;
+    --maoEsquerda: -55deg;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #081038;
+    font-family: "Roboto", Courier, monospace;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+  }
+
+  .cabecaRobo {
+    background-color: #f2f2f2;
+    width: 150px;
+    height: 180px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1em rgb(187, 186, 183);
+    position: relative;
+  }
+
+  .visao {
+    width: inherit;
+    height: inherit;
+    position: relative;
+  }
+
+  .olho {
+    width: 40px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #081038;
+    margin-top: 20px;
+    align-self: center;
+    position: absolute;
+    transition: all 0.2s linear;
+    top: var(--topOlho);
+    right: var(--rightOlho);
+  }
+
+  .olho div {
+    width: 8px;
+    height: 10px;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    background-color: #000000;
+    position: absolute;
+    right: var(--rightIris);
+    top: var(--topIris);
+    transition: all 0.2s linear;
+  }
+
+  .corpoRobo {
+    background-color: #f2f2f2;
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1em rgb(187, 186, 183);
+    position: relative;
+  }
+
+  .ombro {
+    width: 80px;
+    height: 50px;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1em rgb(187, 186, 183);
+    background-color: #f2f2f2;
+  }
+
+  .Direito {
+    right: -50px;
+  }
+
+  .Esquerdo {
+    left: -50px;
+  }
+
+  .bracoEsquerdo {
+    background-color: #f2f2f2;
+    width: 200px;
+    height: 20px;
+    transform: rotate(-65deg);
+    position: absolute;
+    top: 100px;
+    right: -30px;
+  }
+
+  .cotovelo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+  }
+
+  .cotoveloDireito {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+  }
+
+  .cotoveloEsquerdo {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+  }
+
+  .bracoDireito {
+    background-color: #f2f2f2;
+    width: 200px;
+    height: 20px;
+    transform: rotate(65deg);
+    position: absolute;
+    top: 100px;
+    right: -90px;
+  }
+
+  .antebracoDireito {
+    position: absolute;
+    background-color: #f2f2f2;
+    top: var(--topCotoveloDireito);
+    right: var(--rightCotoveloDireito);
+    width: 151px;
+    height: inherit;
+    transform: rotate(var(--rotacaoCotoveloDireito));
+    transition: all 0.2s linear;
+  }
+  .antebracoEsquerdo {
+    position: absolute;
+    background-color: #f2f2f2;
+    top: var(--topCotoveloEsquerdo);
+    right: var(--rightCotoveloEsquerdo);
+    width: 151px;
+    height: inherit;
+    transform: rotate(var(--rotacaoCotoveloEsquerdo));
+    transition: all 0.2s linear;
+  }
+  .balaoConversa {
+    width: 200px;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 50px;
+    right: -220px;
+    border-radius: 20px;
+    border: solid 2px #fff;
+    color: #01fd03;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-animation: fadeIn 3s ease-in-out;
+    -moz-animation: fadeIn 3s ease-in-out;
+    -o-animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
+    transition: all 3s ease-in-out;
+    z-index: 2;
+  }
+
+  .balaoConversa:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    left: -15px;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .botaoCabeca {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+  }
+
+  .regiaoBotaoCabeca {
+    position: absolute;
+    top: 30px;
+    left: 330px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #fff;
+    padding: 5px;
+  }
+
+  .regiaoBotoesCotoveloDireito {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #fff;
+    padding: 5px;
+  }
+
+  .regiaoBotoesCotoveloEsquerdo {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #fff;
+    padding: 5px;
+  }
+
+  .btn {
+    cursor: pointer;
+    border: none;
+  }
+
+  .paraCima {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-bottom: 15px solid #fff;
+    background-color: transparent;
+  }
+  .paraCima:hover {
+    border-bottom: 15px solid rgb(216, 31, 31);
+  }
+
+  .paraBaixo {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-top: 15px solid #fff;
+    background-color: transparent;
+  }
+  .paraBaixo:hover {
+    border-top: 15px solid rgb(216, 31, 31);
+  }
+
+  .paraEsquerda {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    background-color: transparent;
+  }
+  .paraEsquerda:hover {
+    border-right: 15px solid rgb(216, 31, 31);
+  }
+
+  .paraDireita {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #fff;
+    background-color: transparent;
+  }
+  .paraDireita:hover {
+    border-left: 15px solid rgb(216, 31, 31);
+  }
+  .regiaoEsquerdaDireita {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 80px;
+  }
+  .tituloRegiao,
+  label {
+    color: #fff;
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+  }
+  .regiaoBotoesCotoveloDireito label {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 20px;
+  }
+  .regiaoBotoesCotoveloEsquerdo label {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 20px;
+  }
+  .btnCotovelo {
+    width: 50px;
+  }
+  .btnCotovelo:hover {
+    background-color: rgb(216, 31, 31);
+    color: #fff;
+  }
+
+  .maoDireita {
+    width: 50px;
+    height: 50px;
+    background-color: #f2f2f2;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    transform: rotate(var(--maoDireita));
+    box-shadow: 0 0 1em #000;
+    transition: all 0.2s linear;
+  }
+
+  .maoEsquerda {
+    width: 50px;
+    height: 50px;
+    background-color: #f2f2f2;
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    transform: rotate(var(--maoEsquerda));
+    box-shadow: 0 0 1em #000;
+  }
+  .dedos {
+    border-top: solid 1px #000000;
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    height: 20px;
+    width: 100%;
+  }
+
+  .regiaoBotoesMaoEsquerda {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    border: solid 1px #fff;
+    padding: 5px;
+  }
+
+  .regiaoBotoesMaoDireita {
+    position: absolute;
+    top: 250px;
+    right: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    border: solid 1px #fff;
+    padding: 5px;
+  }
+</style>
